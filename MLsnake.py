@@ -196,7 +196,7 @@ class OutputLayer:
             computer.moveUp()
             # print("Moving Up")
         if self.neurons.index(max(self.neurons)) == 3:
-            computer.moveDown()
+            computer.move_down()
             # print("Moving Down")
 
     def update_backwards(self):
