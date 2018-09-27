@@ -23,6 +23,9 @@ NUM_GENS = 200
 LIVE_SCORE = 1
 EAT_SCORE = 10
 MOVE_TO_APPLE = 2
+SPREAD = 1
+RANGE = 2
+MAX_DIST = 5
 
 
 class Apple:
@@ -143,6 +146,27 @@ class Computer:
     def draw(self, surface, image):
         for i in range(0, self.length):
             surface.blit(image, (self.x[i], self.y[i]))
+
+
+class Neuron:
+
+    def __init__(self, is_input, my_id):
+        self.id = my_id
+        self.input = is_input
+        self.shot = (random.uniform(0, 360), random.uniform(0, 360), random.uniform(0, 360))
+        self.spread = random.uniform(0, SPREAD)
+        self.range = random.uniform(0, RANGE)
+        self.location = (random.uniform(0, MAX_DIST), random.uniform(0, MAX_DIST), random.uniform(0, MAX_DIST))
+        self.collateral = []
+
+    def update_hit(self, list_of_neurons):
+        self.collateral = []
+        
+
+
+
+class Network:
+    pass
 
 
 class App:

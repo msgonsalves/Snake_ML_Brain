@@ -115,7 +115,7 @@ class InputLayer:
 
 class Neuron:
 
-    def __init__(self, og, num_nodes, inputAxons):
+    def __init__(self, og, num_nodes, input_axons):
 
         if og == True:
             self.axon = []
@@ -124,16 +124,16 @@ class Neuron:
                 self.axon.append(number)
             self.activation = 0.0
         else:
-            self.axon = inputAxons
+            self.axon = input_axons
             self.activation = 0.0
 
-    def update_forward(self, prevLayor, num_nodes):
+    def update_forward(self, prev_layer, num_nodes):
         sum = 0.0
-        if not len(self.axon) == len(prevLayor.neurons):
+        if not len(self.axon) == len(prev_layer.neurons):
             print(len(self.axon))
-            print(len(prevLayor.neurons))
+            print(len(prev_layer.neurons))
         for i in range(0, num_nodes):
-            sum += self.axon[i] * prevLayor.neurons[i]
+            sum += self.axon[i] * prev_layer.neurons[i]
         self.activation = sigmoid(sum)
 
         return self.activation
